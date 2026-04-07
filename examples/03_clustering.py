@@ -23,7 +23,7 @@ print("Clustering: Customer Segmentation with K-Means")
 print("=" * 60)
 
 np.random.seed(42)
-X, y_true = make_blobs(
+X, _ = make_blobs(
     n_samples=300,
     centers=4,
     cluster_std=[1.0, 1.5, 0.8, 1.2],
