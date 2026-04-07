@@ -257,6 +257,8 @@ def render_questionnaire() -> None:
     with col1:
         if current_idx > 0:
             if st.button("← Previous", use_container_width=True):
+                for q_id, resp in responses_this_category.items():
+                    st.session_state.responses[q_id] = resp
                 st.session_state.current_category_idx -= 1
                 st.rerun()
 
