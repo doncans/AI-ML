@@ -1,0 +1,95 @@
+"""Dressing style and fashion preference questions."""
+
+DRESSING_QUESTIONS = [
+    {
+        "id": "dress_1",
+        "question": "How would you describe your typical dressing style?",
+        "type": "single_choice",
+        "options": [
+            "Formal and professional",
+            "Smart casual",
+            "Casual and comfortable",
+            "Trendy and fashion-forward",
+            "Minimalist and functional",
+            "Eclectic and unique",
+        ],
+        "traits": {
+            "Formal and professional": {"discipline": 5, "authority": 4, "ambition": 5, "traditional": 4},
+            "Smart casual": {"balance_seeking": 5, "versatility": 4, "social_awareness": 4},
+            "Casual and comfortable": {"authenticity": 4, "comfort_seeking": 5, "easygoing": 5},
+            "Trendy and fashion-forward": {"creativity": 4, "social_awareness": 5, "self_expression": 5},
+            "Minimalist and functional": {"efficiency_focus": 5, "minimalism": 5, "practicality": 5},
+            "Eclectic and unique": {"creativity": 5, "individuality": 5, "confidence": 4},
+        },
+    },
+    {
+        "id": "dress_2",
+        "question": "How much time do you spend choosing an outfit each day?",
+        "type": "single_choice",
+        "options": [
+            "Under 2 minutes — grab and go",
+            "5-10 minutes — quick but intentional",
+            "10-20 minutes — I like to look put together",
+            "20+ minutes — appearance matters a lot",
+            "I plan outfits the night before",
+        ],
+        "traits": {
+            "Under 2 minutes — grab and go": {"efficiency_focus": 5, "spontaneity": 4, "minimalism": 4},
+            "5-10 minutes — quick but intentional": {"balance_seeking": 4, "self_awareness": 3},
+            "10-20 minutes — I like to look put together": {"self_presentation": 4, "attention_to_detail": 4},
+            "20+ minutes — appearance matters a lot": {"self_presentation": 5, "perfectionism": 4, "self_consciousness": 3},
+            "I plan outfits the night before": {"planning": 5, "organization": 5, "control_preference": 4},
+        },
+    },
+    {
+        "id": "dress_3",
+        "question": "What colors do you gravitate toward in clothing?",
+        "type": "single_choice",
+        "options": [
+            "Neutrals (black, white, grey, beige)",
+            "Bold and bright colors",
+            "Earth tones (brown, olive, rust)",
+            "Pastels and soft tones",
+            "I wear all colors equally",
+        ],
+        "traits": {
+            "Neutrals (black, white, grey, beige)": {"sophistication": 4, "minimalism": 4, "versatility": 4},
+            "Bold and bright colors": {"confidence": 5, "extraversion": 5, "expressiveness": 5},
+            "Earth tones (brown, olive, rust)": {"nature_connection": 4, "groundedness": 4, "warmth": 4},
+            "Pastels and soft tones": {"gentleness": 4, "sensitivity": 4, "approachability": 4},
+            "I wear all colors equally": {"flexibility": 5, "openness_to_experience": 4, "adaptability": 4},
+        },
+    },
+    {
+        "id": "dress_4",
+        "question": "How influenced are you by fashion trends?",
+        "type": "scale",
+        "scale_min": 1,
+        "scale_max": 5,
+        "scale_labels": ["Not at all", "Slightly", "Moderately", "Quite influenced", "Highly trend-driven"],
+        "trait_mapping": {
+            "social_conformity": "linear",
+            "trend_sensitivity": "linear",
+            "external_validation": "linear",
+        },
+    },
+    {
+        "id": "dress_5",
+        "question": "Your approach to accessories (watches, jewelry, bags) is:",
+        "type": "single_choice",
+        "options": [
+            "Minimal — I prefer none or very few",
+            "Functional only (watch, simple bag)",
+            "A few signature pieces I always wear",
+            "I change accessories to match outfits",
+            "I love accessories and wear many",
+        ],
+        "traits": {
+            "Minimal — I prefer none or very few": {"minimalism": 5, "simplicity": 5, "practicality": 4},
+            "Functional only (watch, simple bag)": {"practicality": 5, "efficiency_focus": 4},
+            "A few signature pieces I always wear": {"identity_focus": 5, "consistency": 4, "sentimentality": 3},
+            "I change accessories to match outfits": {"attention_to_detail": 5, "creativity": 4, "effort_in_appearance": 4},
+            "I love accessories and wear many": {"expressiveness": 5, "self_expression": 5, "boldness": 4},
+        },
+    },
+]
