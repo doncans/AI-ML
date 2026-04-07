@@ -51,7 +51,7 @@ async def _ask_single_choice(question: dict) -> str | None:
     """Ask a single-choice question using action buttons."""
     options = question["options"]
     actions = [
-        cl.Action(name="answer", label=opt, value=opt, description=opt)
+        cl.Action(name="answer", label=opt, payload={"value": opt})
         for opt in options
     ]
     res = await cl.AskActionMessage(
@@ -59,8 +59,8 @@ async def _ask_single_choice(question: dict) -> str | None:
         actions=actions,
         timeout=300,
     ).send()
-    if res and res.get("value"):
-        return res["value"]
+    if res and res.get("payload"):
+        return res["payload"]["value"]
     return None
 
 
@@ -80,7 +80,7 @@ async def _ask_scale(question: dict) -> int | None:
         if labels and 0 <= val - scale_min < len(labels):
             label_text = f"{val} - {labels[val - scale_min]}"
         actions.append(
-            cl.Action(name="answer", label=label_text, value=str(val))
+            cl.Action(name="answer", label=label_text, payload={"value": str(val)})
         )
 
     res = await cl.AskActionMessage(
@@ -88,8 +88,8 @@ async def _ask_scale(question: dict) -> int | None:
         actions=actions,
         timeout=300,
     ).send()
-    if res and res.get("value"):
-        return int(res["value"])
+    if res and res.get("payload"):
+        return int(res["payload"]["value"])
     return None
 
 
@@ -220,7 +220,7 @@ async def _generate_report(analyzer: BehaviorAnalyzer) -> None:
 
     # Offer retake
     retake_actions = [
-        cl.Action(name="retake", label="🔄 Retake Assessment", value="retake"),
+        cl.Action(name="retake", label="🔄 Retake Assessment", payload={"value": "retake"}),
     ]
     await cl.AskActionMessage(
         content="Would you like to retake the assessment?",
@@ -250,7 +250,7 @@ async def on_chat_start():
 
     # Start questionnaire
     actions = [
-        cl.Action(name="start", label="🚀 Start Analysis", value="start"),
+        cl.Action(name="start", label="🚀 Start Analysis", payload={"value": "start"}),
     ]
     res = await cl.AskActionMessage(
         content="Ready to begin?",
