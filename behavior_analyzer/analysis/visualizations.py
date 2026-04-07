@@ -3,10 +3,9 @@
 from typing import Any
 
 import matplotlib
-import matplotlib.pyplot as plt
-import numpy as np
-
 matplotlib.use("Agg")
+import matplotlib.pyplot as plt  # noqa: E402
+import numpy as np  # noqa: E402
 
 
 def create_personality_radar(profile: dict[str, dict[str, Any]]) -> plt.Figure:
